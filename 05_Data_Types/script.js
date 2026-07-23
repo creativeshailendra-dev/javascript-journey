@@ -75,3 +75,69 @@ console.log(course, typeof (course));
 // f ✅ / ❌
 
 // और अगर किसी में Error है, तो क्यों?
+
+
+// Escape Character
+// let g = "I'm Shailendra"; // Error
+let g = "I\'m Shailendra"; // ✅
+
+
+console.log(g);
+
+
+// Project information Card
+
+
+let student = "Student Details\n\nName : Shailendra\nCity : Gorakhpur\nCourse : JavaScript";
+
+console.log(student);
+
+console.log("Hello\nWorld");
+console.log("A\tB");
+console.log("Path: C:\\Users\\Shailendra");
+
+
+// String Length
+
+let nameLength = "Rahul Kumar";
+let n = "";
+
+
+
+console.log(nameLength);
+console.log("Length of name:", nameLength.length);
+console.log("n:", n.length)
+
+
+// String Indexing इसका मतलब है कि String के हर Character का एक Index होता है। Index 0 से शुरू होता है।
+
+let language = "Developer";
+
+console.log(language.length);
+console.log(language[0]); // D
+console.log(language[8]); // r
+console.log(language[9]); // undefined
+console.log(language[language.length - 1]); // r
+
+
+// String Methods
+
+// UpparCase 
+let project = "missonshikar";
+const father = "Ramanand Sagar";
+
+
+console.log(project.toUpperCase());
+console.log(father.toUpperCase());
+console.log(project);
+
+// LowerCase
+
+let country1 = "DELHI";
+let poster = "TAJMAHAL";
+
+poster = poster.toLowerCase();
+
+console.log(country1.toLowerCase());
+console.log(country1);
+console.log(poster);

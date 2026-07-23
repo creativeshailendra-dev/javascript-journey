@@ -22,10 +22,10 @@
 // Answer: 🚨 Temporal Dead Zone (TDZ)
 
 // 📌 सबसे Important Difference
-// var	let
-// Memory में undefined मिलता है	Memory में रहता है, लेकिन TDZ में रहता है
-// पहले Access कर सकते हो	पहले Access नहीं कर सकते
-// undefined मिलता है	ReferenceError मिलता है
+//           var	                                   let
+// Memory में undefined मिलता है	        Memory में रहता है, लेकिन TDZ में रहता है
+// पहले Access कर सकते हो	            पहले Access नहीं कर सकते
+// undefined मिलता है	                    ReferenceError मिलता है
 
 /*
 var:
