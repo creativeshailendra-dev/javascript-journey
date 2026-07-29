@@ -120,24 +120,3 @@ console.log(language[9]); // undefined
 console.log(language[language.length - 1]); // r
 
 
-// String Methods
-
-// UpparCase  --> Method
-let project = "missonshikar";
-const father = "Ramanand Sagar";
-
-
-console.log(project.toUpperCase());
-console.log(father.toUpperCase());
-console.log(project);
-
-// LowerCase --> Method
-
-let country1 = "DELHI";
-let poster = "TAJMAHAL";
-
-poster = poster.toLowerCase();
-
-console.log(country1.toLowerCase());
-console.log(country1);
-console.log(poster);
