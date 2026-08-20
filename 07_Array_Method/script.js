@@ -334,13 +334,13 @@ let arr19 = [10, 20, 30];
 console.log(arr19.find(num => num > 100)); // undefined कोई भी Number Condition पूरी नहीं कर रहा।
 
 let users = [
-  {name:"Rahul", age:18},
-  {name:"Aman", age:22},
-  {name:"Sohan", age:20}
+  { name: "Rahul", age: 18 },
+  { name: "Aman", age: 22 },
+  { name: "Sohan", age: 20 }
 ];
 
 let result8 = users.find(user => user.age > 20);
-console.log(result8); 
+console.log(result8);
 /*
  Output:
   {
@@ -399,6 +399,268 @@ Original Array Modify नहीं करता।
 Objects Search करने में बहुत उपयोगी है।
 Function और Arrow Function सीखने के बाद इसे दोबारा Detail में पढ़ेंगे।
 */
+
+
+
+// ###############   Chapter 5: Sorting Methods   ################# 
+
+// Method # 1 : sort ()
+
+let fruits9 = ["Mango", "Apple", "Banana"];
+fruits9.sort();
+console.log(fruits9)
+
+let names2 = ["Rohit", "Aman", "Rahul", "Sohan"];
+names2.sort();
+console.log(names2); // ['Aman', 'Rahul', 'Rohit', 'Sohan']
+
+let numbers4 = [10, 2, 30, 5];
+numbers4.sort((a, b) => a - b);
+console.log(numbers4); // [2, 5, 10, 30] Ascending order
+
+let numbers5 = [10, 2, 30, 5];
+numbers5.sort((a, b) => b - a);
+console.log(numbers5); // [30, 10, 5, 2]  Descending Order
+
+let fruits10 = ["Mango", "Apple", "Banana"];
+let result12 = fruits10.sort();
+console.log(result12); // ['Apple', 'Banana', 'Mango']
+console.log(fruits10); // ['Apple', 'Banana', 'Mango']
+
+// Method # 2 : reverse()
+
+let fruits11 = ["Apple", "Banana", "Mango"];
+fruits11.reverse();
+console.log(fruits11); // ['Mango', 'Banana', 'Apple']
+
+let numbers6 = [1, 2, 3, 4, 5];
+numbers6.reverse();
+console.log(numbers6); // [5, 4, 3, 2, 1]
+
+let arr21 = ["A", "B", "C"];
+let result13 = arr21.reverse();
+console.log(result13); // ['C', 'B', 'A']
+console.log(arr21);  // ['C', 'B', 'A']
+// kyoki reverse ne original array ko hi badal diya (Mutable Method)
+
+let numbers7 = [10, 2, 30, 5];
+numbers7.sort((a, b) => a - b);
+numbers7.reverse();
+console.log(numbers7); //  [30, 10, 5, 2]
+
+
+// Method # 3 : toSorted ()
+
+// sort() original array ko badlta hai, lekin toSorted () original array ko nahi badlta hai.
+
+let fruits12 = ["Mango", "Apple", "Banana"];
+let sortedFruits = fruits12.toSorted();
+console.log(sortedFruits); //  ['Apple', 'Banana', 'Mango']
+console.log(fruits12); // ['Mango', 'Apple', 'Banana']
+
+let numbers8 = [10, 2, 30, 5];
+let result14 = numbers8.toSorted((a, b) => a - b);
+console.log(result14); // [2, 5, 10, 30]
+console.log(numbers8); // [10, 2, 30, 5]
+// Original array untouched hai
+
+let numbers9 = [10, 2, 30, 5];
+let result15 = numbers9.toSorted((a, b) => b - a);
+console.log(result15); // [30, 10, 5, 2]
+
+
+// Method # 4 : toReversed ()
+// New Reversed Array deta hai.
+
+let fruits14 = ["Mango", "Apple", "Banana"];
+let result16 = fruits14.toReversed();
+console.log(result16); // ['Banana', 'Apple', 'Mango']
+console.log(fruits14); // ['Mango', 'Apple', 'Banana']
+// yani yah new array return kar rha hai aur origina safe kar rha hai.
+
+let numbers10 = [10, 20, 30, 40, 50];
+let result17 = numbers10.toReversed();
+console.log(result17); // [50, 40, 30, 20, 10]
+console.log(numbers10); // [10, 20, 30, 40, 50]
+
+let arr22 = ["A", "B", "C"];
+let result18 = arr22.reverse();
+console.log(result18); // ['C', 'B', 'A']
+console.log(arr22); // ['C', 'B', 'A']
+// kyoki reverse ne original array badal diya
+
+
+
+// ###############   Chapter 6: Array Transformation & Iteration   ################# 
+// array ke har element ke sath ststematically kam kaise kiya jata hai.
+
+// Method # 1 : forEach ()
+
+let fruits15 = ["Mango", "Apple", "Banana"];
+
+fruits15.forEach(function (fruit) {
+  console.log(fruit);
+});
+
+
+let numbers12 = [5, 10, 15, 20];
+numbers12.forEach(function (number) {
+  console.log(number * 2);
+});
+
+
+let colors3 = ["Red", "Green", "Blue"];
+colors3.forEach(function (color, index) {
+  console.log(index, color);
+});
+// 0 'Red' is types se
+
+let numbers13 = [2, 5, 8, 11, 14];
+numbers13.forEach(function (evenNumber) {
+  if (evenNumber % 2 === 0) {
+    console.log(evenNumber);
+  }
+});
+// only even number print karega
+
+let prices = [100, 250, 500, 750];
+prices.forEach(function (price) {
+  console.log("Porduct price :", price);
+});
+// Product price : 100 is tarah se dikhega
+
+let numbers14 = [10, 20, 30];
+let result19 = numbers14.forEach(function (number) {
+  return number * 2;
+});
+console.log(result19); // undefined kyoki forEach method new array nahi return karta hai.
+
+// Method # 2 : map()
+// yah her element per kam karke new array return karta hai
+
+let numbers15 = [5, 10, 15, 20];
+let result20 = numbers15.map(function (number) {
+  return number * 2;
+});
+console.log(numbers15); // [5, 10, 15, 20]
+console.log(result20); // [10, 20, 30, 40] // thats main logic for this method
+
+let numbers16 = [10, 20, 30];
+let result21 = numbers16.map(function (number) {
+  return number + 100;
+});
+console.log(result21); // [110, 120, 130]
+
+// Logicial
+let names3 = ["Aman", "Rahul", "Ravi"];
+let result22 = names3.map(function (name) {
+  return "Hello, " + name;
+});
+console.log(result22); // ['Hello, Aman', 'Hello, Rahul', 'Hello, Ravi']
+
+let users2 = [
+  { name: "Aman", age: 20 },
+  { name: "Rahul", age: 22 },
+  { name: "Ravi", age: 19 }
+];
+let result23 = users2.map(function (user) {
+  return user.name;
+});
+console.log(result23); // ['Aman', 'Rahul', 'Ravi']
+
+let result24 = users2.map(function (user) {
+  return user.age + 1;
+});
+console.log(result24); // [21, 23, 20] // yah users ke age me 1 add karke ek new array bana rha hai.
+
+let numbers17 = [1, 2, 3];
+let res3 = numbers17.map(function (number) {
+  return number;
+});
+console.log(res3); // [1, 2, 3]
+
+
+// ###############   Chapter 7 : Array Filtering   #################
+// filter () sirf un elements ko chunkar ek new array banata hai jo di gyi condition ko satisfy karta hai.
+
+// Method # : filter ()
+// syntax
+/*
+
+let newArray = array.filter(function(elemnt){
+return condition;
+});
+
+*/
+// yah elements ko condition ke adhar per select karta hai jabki map trasform karta hai. IMP line
+
+
+
+let numbers19 = [5, 10, 15, 25, 30];
+let result25 = numbers19.filter(function (number) {
+  return number > 15;
+});
+console.log(result25);
+
+
+let numbers18 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let evenumbers = numbers18.filter(function (number) {
+  return number % 2 === 0;
+});
+console.log(evenumbers);
+
+
+let ages2 = [12, 17, 18, 20, 25];
+let result26 = ages2.filter(function (age) {
+  return age >= 18;
+
+});
+console.log(result26);
+
+
+let users3 = [
+  { name: "Aman", age: 20 },
+  { name: "Rahul", age: 16 },
+  { name: "Rohan", age: 22 },
+  { name: "Sohan", age: 15 }
+];
+
+let adults = users3.filter(function (user) {
+  return user.age >= 18;
+});
+console.log(adults); // [{…}, {…}]
+
+
+let product = [
+  { name: "Laptop", price: 50000 },
+  { name: "Mouse", price: 800 },
+  { name: "Phone", price: 20000 },
+  { name: "Keyboard", price: 1500 }
+];
+
+let filtProduct = product.filter(function (fit) {
+  return fit.price > 5000;
+});
+console.log(filtProduct); // [{…}, {…}]
+
+
+let numbers20 = [10, 20, 30];
+let result27 = numbers20.filter(function (number) {
+  return number;
+});
+console.log(result27); // [10, 20, 30]
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
