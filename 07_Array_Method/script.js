@@ -651,6 +651,431 @@ let result27 = numbers20.filter(function (number) {
 console.log(result27); // [10, 20, 30]
 
 
+// ###############   Chapter 8 : Reduction   #################
+// pure array ki kai values ko milakar ek final value banana.
+/* syntax;
+let result = array.reduce(function(accumulator, currentValue){
+return newValue;
+}, initialValue) ;
+*/
+
+/* 
+accumulator - ab tak ka jma hua result
+currentValue - abhi jis element par kam ho rha hai.
+intialValue - shuruaat ki value/
+*/
+
+let numbers21 = [10, 20, 30, 40];
+let totalN = numbers21.reduce(function (sum, number) {
+  return sum + number;
+}, 0);
+console.log(totalN); // 100
+
+
+
+let numbers22 = [5, 10, 15, 20];
+let totalN2 = numbers22.reduce(function (total, number) {
+  return total + number;
+}, 0);
+console.log(totalN2); // 50
+
+
+
+let products = [
+  { name: "Laptop", price: 50000 },
+  { name: "Phone", price: 20000 },
+  { name: "Mouse", price: 1000 }
+];
+
+let totalPrice = products.reduce(function (price, product) {
+  return price + product.price;
+}, 0);
+console.log(totalPrice); // 71000
+
+
+let numbers23 = [10, 20, 30];
+let total = numbers23.reduce(function (sum, number) {
+  return sum + number;
+}, 100);
+console.log(total); // 160 kyoki initial value 100 hai,
+
+// Logicial qus
+let numbers24 = [15, 40, 10, 80];
+let maxiumN = numbers24.reduce(function (max, number) {
+  if (number > max) {
+    return number;
+  }
+  return max;
+}, numbers24[0]);
+console.log(maxiumN); // 80
+
+
+// ###########     Chapter 9 : Advanced Array Concepts       ############
+
+
+// Method 01 : some()
+
+let numbers25 = [10, 20, 30, 40, 50];
+let result28 = numbers25.some(function (number) {
+  return number > 45;
+});
+console.log(result28); // true
+
+
+let numbers26 = [5, 10, 15, -2, 20];
+let result29 = numbers26.some(function (number) {
+  return number < 0;
+});
+console.log(result29); // true
+
+
+let ages3 = [12, 15, 16, 21];
+let result30 = ages3.some(function (age) {
+  return age > 18;
+});
+console.log(result30); // true
+
+
+let users4 = [
+  { name: "Aman", age: 15 },
+  { name: "Rahul", age: 16 },
+  { name: "Ravi", age: 17 }
+];
+
+let result31 = users4.some(function (user) {
+  return user.age > 18;
+});
+console.log(result31); // false
+
+
+let products2 = [
+  { name: "Laptop", stock: 0 },
+  { name: "Phone", stock: 0 },
+  { name: "Mouse", stock: 5 }
+];
+
+let result32 = products2.some(function (product) {
+  return product.stock > 0;
+});
+console.log(result32); // true
+
+
+let numbers27 = [5, 10, 15];
+let result33 = numbers27.some(function (number) {
+  return number > 100;
+});
+console.log(result33); // false 
+/*  why: computer sabhi numbers ko diye condition ke adhar par check karke result deta hai chunki 100 se bda 
+number nahi hai isliye output: false
+
+IMP - 
+some()
+ek ek element check karta hai,
+kya koi ek condition sastisfy karta hai?,
+yes - true
+NO - false
+
+teeno ko sath rakhiye 
+map() - badlo
+filter() - chanto
+some() - kya koi ek hai?
+ */
+
+
+// Method #2 : every()
+// every () check karta hai ki array ke sabhi elements given condition ko satisfy karte hai ya nahi.
+
+/* syntax: let rexul = array.every(function(element){
+return condition;
+});
+*/
+
+// sabhi pass - true 
+// ek bhi fail - false
+
+// some() - koi ek?
+// every() - sabhi?
+
+let numbers28 = [10, 20, 30, 40];
+let result34 = numbers28.every(function (number) {
+  return number > 5;
+});
+console.log(result34); // true
+
+
+
+let numbers29 = [2, 4, 6, 8, 10];
+let result35 = numbers29.every(function (number) {
+  return number % 2 === 0;
+});
+console.log(result35); // true
+
+
+
+let ages4 = [20, 25, 17, 30];
+let result36 = ages4.every(function (age) {
+  return age >= 18;
+});
+console.log(result36); // false
+
+
+
+let users5 = [
+  { name: "Aman", active: true },
+  { name: "Rahul", active: true },
+  { name: "Prabhu", active: true }
+];
+
+let result37 = users5.every(function (user) {
+  return user.active;
+});
+console.log(result37); // true
+
+
+
+let products3 = [
+  { name: "Laptop", stock: 5 },
+  { name: "Phone", stock: 2 },
+  { name: "Mouse", stock: 0 }
+];
+
+let result38 = products3.every(function (product) {
+  return product.stock
+});
+console.log(result38); // false
+
+
+let numbers30 = [5, 10, 15, 20];
+let result39 = numbers30.some(function (number) {
+  return number > 18;
+});
+
+let result40 = numbers30.every(function (number) {
+  return number > 18;
+});
+
+console.log(result39); // true // ek bhi mila to true 
+console.log(result40); // false  // sab hone chahiye 
+
+
+
+// Method #3 : flat()
+
+// flat () Nested array ko specified depth tak flatten karke new array return karta hai.
+/* 
+syntax:
+let result = array.flat(depth);
+arr.flat(1); - 1 level
+arr.flat(2); - 2 level ---- infinity
+*/
+
+let arr23 = [1, [2, 3], 4];
+let result41 = arr23.flat();
+console.log(result41); // [1, 2, 3, 4]
+
+let arr24 = [[1, 2], [3, 4], [5, 6]];
+let result42 = arr24.flat();
+console.log(result42); // [1, 2, 3, 4, 5, 6]
+
+let arr25 = [1, [2, [3, 4]], 5]; 3
+let result43 = arr25.flat(2);
+
+console.log(arr25);  // [1, Array(2), 5]
+console.log(arr25.flat()); //  [1, 2, Array(2), 5] // isme by default depth 1 rahta hai. jo ek hi level flatten karta hai.
+console.log(result43); // [1, 2, 3, 4, 5] // 2 level flatten ke liye depth 2 ka use karte hai.
+
+let categories = [
+  ["Laptop", "Phone"],
+  ["Mouse", "Keyboard"],
+  ["Monitor", "Printer"]
+];
+let result44 = categories.flat();
+console.log(result44); // ['Laptop', 'Phone', 'Mouse', 'Keyboard', 'Monitor', 'Printer']
+
+let arr26 = [1, [2, [3, [4]]]];
+console.log(arr26); // [1, Array(2)]
+
+/*
+map() - Transform
+filter() - Select
+flat() - Flatten
+*/
+
+// Method # 4 : flatMap () 
+
+// flatMap() array ke har element ko transform karta hai aur resulting array ko ek level tak flattern karke new array deta hai.
+/*
+synatax:
+let result = numbers.flatMap(function(number){
+return newValue;
+});
+                                                                                                                                                               
+agar callback se value return hota hai 
+
+let result = array.flatMap(function(element){
+return [value1, value2];
+});
+*/
+
+let numbers31 = [1, 2, 3];
+let result45 = numbers31.flatMap(function (number) {
+  return [number, number * 2];
+});
+console.log(result45); //  [1, 2, 2, 4, 3, 6]
+
+let numbers32 = [1, 2, 3];
+let result46 = numbers32.map(function (number) {
+  return [number, number * 10];
+});
+console.log(result46); // [1, 10], [2, 20], [3, 30]
+
+let result47 = numbers32.flatMap(function (number) {
+  return [number, number * 10];
+});
+console.log(result47); // [1, 10, 2, 20, 3, 30]
+
+let users6 = [
+  { name: "Aman", skills: ["HTML", "CSS"] },
+  { name: "Rahul", skills: ["JavaScript", "React"] }
+];
+let result48 = users6.flatMap(function (user) {
+  return user.skills;
+});
+console.log(result48); // ['HTML', 'CSS', 'JavaScript', 'React']
+
+let sentences = [
+  "I love coding", "JavaScript is powerful"
+];
+let result49 = sentences.flatMap(function (word) {
+  return word.split(" ");
+});
+console.log(result49); // ['I', 'love', 'coding', 'JavaScript', 'is', 'powerful']
+
+let numbers33 = [1, 2, 3];
+let result50 = numbers33.flatMap(function (number) {
+  return [number * 2];
+});
+console.log(result50); // [2, 4, 6]
+
+
+// Next Method # VIP : Array.isArray()
+
+// Yah check karta hai ki di gai value Array hai ya nahi
+/*
+Syntax:
+Array.isArrayI(value);
+returns boolean always
+*/
+// yah validation me help karta hai
+
+let data = [10, 20, 30];
+console.log(Array.isArray(data)); // true
+
+console.log(Array.isArray("Hello")); // false
+console.log(Array.isArray(100)); // false
+console.log(Array.isArray(true));  // false
+console.log(Array.isArray({}));  // false
+console.log(Array.isArray([]));  // true
+
+
+let users7 = {
+  name: "Aman",
+  age: 20
+};
+
+console.log(Array.isArray(users7)); // false
+
+
+// MExt MEthod : Array.form();
+// syntax: Array.from(value);
+// yah iterable array likes value se new array create / convert karta hai.
+
+let naam = "Aman";
+let ans = Array.from(naam);
+
+console.log(ans); //  ['A', 'm', 'a', 'n']
+
+// IMP Set data ko Array me badlna
+
+let numbers34 = new Set([10, 20, 30]);
+let result51 = Array.from(numbers);
+console.log(result);
+
+// Array-like Data 
+let elements = Array.from(
+  document.querySelectorAll("div")
+);
+console.log(elements); // []
+
+// Array.from() ka dusra argument bhi ho sakta hai
+let numbers35 = Array.from([1, 2, 3],
+  function (number) {
+    return number * 2;
+  });
+console.log(numbers35); //  [2, 4, 6]
+
+let numbers37 = [1, 2, 3, 4];
+let result52 = Array.from([1, 2, 3, 4], // ya hum seedhe numbers37 bhi likh sakte hai
+  function (number) {
+    return number * 2;
+  });
+console.log(result52);
+
+
+// 5 Element Array
+
+let numbrs36 = Array.from({ length: 5 });
+
+console.log(numbrs36); // [undefined, undefined, undefined, undefined, undefined]
+
+console.log(Array.isArray(result51)); // true
+
+let numbes38 = Array.from(
+  { length: 5 },
+  function (value, index) {
+    return index + 1;
+  }
+);
+console.log(numbes38); // [1, 2, 3, 4, 5]
+
+// yah iterable ya arrayl like value se new array create karta hai
+
+
+
+
+/*
+
+Questions:  
+
+Round 1 — Variables & Data Types
+
+Ek variable city banao jisme apne sheher ka naam store karo, aur console.log se print karo.
+Ye batao in mein se konsa data type hai:
+javascript
+   let a = 25;
+   let b = "25";
+   let c = true;
+   let d = 25.5;
+typeof operator use karke ye check karo ki b ka data type kya hai. (Hint: console.log(typeof b))
+
+Round 2 — String Methods
+
+let name = "  Rahul Sharma  "; — is string ke extra spaces hatao (kaunsa method use karoge?)
+let word = "javascript"; — ise poori tarah CAPITAL letters mein convert karo.
+let sentence = "I love coding"; — sirf "love" word nikaalo is string se (slice ya substring use karke).
+Check karo ki "JavaScript" string mein "Script" word hai ya nahi (true/false batana hai).
+
+Round 3 — Array Methods
+
+let fruits = ["apple", "banana", "mango"]; — is array ke end mein "orange" add karo.
+Same array se pehla element ("apple") remove karo.
+let numbers = [1, 2, 3, 4, 5]; — is array ko .map() use karke har number ka double banao (naya array: [2,4,6,8,10]).
+Same numbers array se sirf even numbers nikaalo .filter() use karke.
+numbers array ke sab elements ka sum (jod) nikaalo .reduce() use karke.
+
+*/
+
+
 
 
 
