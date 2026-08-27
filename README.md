@@ -142,9 +142,73 @@ This repository will continue to grow as I learn new JavaScript concepts and bui
 
 ---
 
-# 🚧 Upcoming Topics
+---
 
-- Arrays
+## ✅ 07. JavaScript Array Methods
+
+### Array Foundation
+
+- Array Basics
+- Array Indexing
+- Array Length
+- Array Access
+- Array with Objects
+
+### Basic Array Methods
+
+- push()
+- pop()
+- shift()
+- unshift()
+- concat()
+- join()
+
+### Array Manipulation
+
+- slice()
+- splice()
+- fill()
+- copyWithin()
+
+### Array Searching
+
+- includes()
+- indexOf()
+- lastIndexOf()
+- find()
+- findIndex()
+
+### Array Sorting
+
+- sort()
+- reverse()
+- toSorted()
+- toReversed()
+
+### Array Iteration & Transformation
+
+- forEach()
+- map()
+
+### Array Filtering & Reduction
+
+- filter()
+- reduce()
+
+### Advanced Array Methods
+
+- some()
+- every()
+- flat()
+- flatMap()
+- Array.isArray()
+- Array.from()
+
+
+
+# 🚧 Upcoming Topics 
+
+
 - Objects
 - Functions
 - Loops
@@ -185,12 +249,14 @@ This repository will continue to grow as I learn new JavaScript concepts and bui
 javascript-journey/
 
 │
+
 ├── 01-my-profile-card/
 ├── 02-var-let-const/
 ├── 03-scope/
 ├── 04-hoisting/
 ├── 05-data-types/
 ├── 06-string-method/
+├── 07_Array_Method/
 │
 └── README.md
 ```
@@ -227,6 +293,7 @@ This repository is built to:
 
 # 📈 Current Progress
 
+
 ✅ HTML
 
 ✅ CSS
@@ -243,7 +310,9 @@ This repository is built to:
 
 ✅ String Methods
 
-🚧 Arrays (Coming Next)
+✅ Arrays
+
+🚧 Objects
 
 ---
 
